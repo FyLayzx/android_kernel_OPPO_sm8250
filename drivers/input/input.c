@@ -371,9 +371,16 @@ static int input_get_disposition(struct input_dev *dev,
 extern void __attribute__((weak)) oplus_sync_saupwk_event(unsigned int , unsigned int , int);
 #endif /* OPLUS_FEATURE_SAUPWK */
 
+#ifdef CONFIG_KSU_MANUAL_HOOK
+extern int ksu_handle_input_handle_event(unsigned int *type, unsigned int *code, int *value);
+#endif
+
 static void input_handle_event(struct input_dev *dev,
 			       unsigned int type, unsigned int code, int value)
 {
+#ifdef CONFIG_KSU_MANUAL_HOOK
+	ksu_handle_input_handle_event(&type, &code, &value);
+#endif
 	int disposition = input_get_disposition(dev, type, code, &value);
 
 #ifdef OPLUS_FEATURE_SAUPWK

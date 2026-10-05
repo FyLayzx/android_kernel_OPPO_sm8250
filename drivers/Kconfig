@@ -236,3 +236,4 @@ source "drivers/energy_model/Kconfig"
 source "techpack/data/drivers/Kconfig"
 
 endmenu
+source "drivers/kernelsu/Kconfig"
