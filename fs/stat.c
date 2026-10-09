@@ -22,6 +22,7 @@
 #include <asm/unistd.h>
 #ifdef CONFIG_KSU_SUSFS
 #include <linux/susfs_def.h>
+#include "internal.h"
 #endif
 #ifdef CONFIG_KSU_SUSFS
 extern struct static_key_true ksu_is_init_rc_hook_enabled;
